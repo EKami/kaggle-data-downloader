@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='kaggle-data-downloader',
+    name='kaggle_data_downloader',
     version='0.1',
 
     description='An unofficial Kaggle datasets downloader',
-    long_description="https://github.com/EKami/kaggle-data-downloader/blob/master/README.md",
-    url='https://github.com/EKami/kaggle-data-downloader',
+    long_description="https://github.com/EKami/kaggle_data_downloader/blob/master/README.md",
+    url='https://github.com/EKami/kaggle_data_downloader',
     author='GODARD Tuatini',
     author_email='tuatinigodard@gmail.com',
     license='MIT',

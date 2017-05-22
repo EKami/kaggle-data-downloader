@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.append('../kaggle-data-downloader')
+sys.path.append('../kaggle_data_downloader')
 from KaggleDataDownloader import KaggleDataDownloader
 
 
