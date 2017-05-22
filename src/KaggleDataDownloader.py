@@ -1,8 +1,8 @@
 import re
 import os
-import magic
 import progressbar
 from mechanicalsoup import Browser
+import codecs
 
 
 class KaggleDataDownloader:
@@ -61,10 +61,26 @@ class KaggleDataDownloader:
         :param destination_path: string
             Path where you want to extract your file
         """
-        print(dataset_path)
-        print(destination_path)
-        file_type = magic.from_file(dataset_path)
-        print(file_type)
+        file_type = self._get_file_type(dataset_path)
+        print("file_type", file_type)
+
+    def _get_file_type(self, file_path):
+        file_type = None
+        magic_dict = {
+            b"\x1f\x8b\x08": "gz",
+            b"\x42\x5a\x68": "bz2",
+            b"\x50\x4b\x03\x04": "zip",
+            b"\x37\x7A\xBC\xAF\x27\x1C": "7z"
+        }
+        max_len = max(len(x) for x in magic_dict)
+
+        with open(file_path, "rb") as f:
+            file_start = f.read(max_len)
+        for magic, filetype in magic_dict.items():
+            if file_start.startswith(magic):
+                file_type = filetype
+
+        return file_type
 
     def _download_file(self, browser, url, destination_path):
         local_filename = url.split('/')[-1]
