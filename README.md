@@ -4,7 +4,7 @@ An unofficial Kaggle datasets downloader very much inspired by [kaggle-cli](http
 ## Installation
 
 ```
-$ pip install git+https://github.com/EKami/kaggle-data-downloader.git
+$ pip install -U git+https://github.com/EKami/kaggle-data-downloader.git
 ```
 
 Depending on the format of your archive you may need to install some tools
