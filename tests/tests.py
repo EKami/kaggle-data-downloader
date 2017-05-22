@@ -1,0 +1,20 @@
+import os
+import sys
+
+sys.path.append('../src')
+from KaggleDataDownloader import KaggleDataDownloader
+
+
+class TestKaggleDataDownloader:
+    """
+    Use with pytest -q -s tests.py
+    """
+
+    def test_download_data(self):
+        competition_name = "planet-understanding-the-amazon-from-space"
+        dataset_name = "test-jpg-additional.tar.7z"
+        destination_path = "input/"
+
+        downloader = KaggleDataDownloader(os.getenv("KAGGLE_USER"), os.getenv("KAGGLE_PASSWD"), competition_name)
+        output_path = downloader.download_dataset(dataset_name, destination_path)
+        downloader.unzip(output_path, destination_path)

@@ -1,5 +1,5 @@
 # Kaggle-data-downloader
-An unofficial Kaggle datasets downloader very much inspired by kaggle-ci
+An unofficial Kaggle datasets downloader very much inspired by [kaggle-cli](https://github.com/floydwch/kaggle-cli)
 
 ## Installation
 ```
