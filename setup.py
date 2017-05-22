@@ -29,6 +29,9 @@ setup(
 
     keywords='development',
     packages=find_packages(exclude=['tests']),
+    package_data={
+        'utils': ['utils.py'],
+    },
     install_requires=['mechanicalsoup',
                       'progressbar2'],
 )
