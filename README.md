@@ -3,9 +3,8 @@ An unofficial Kaggle datasets downloader very much inspired by [kaggle-cli](http
 
 ## Installation
 
-/!\ Not yet available on `pip`
 ```
-$ pip install kaggle-data-downloader
+$ pip install git+https://github.com/EKami/kaggle-data-downloader.git
 ```
 
 Depending on the format of your archive you may need to install some tools
