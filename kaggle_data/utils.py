@@ -32,7 +32,7 @@ def get_archive_type(file_path):
 
 
 def extract_7_zip(file_path, destination_path):
-    command = ['7za', 'x', file_path, '-o' + destination_path, '-aoa', '-bsp1', '-bso0']
+    command = ['7za', 'x', file_path, '-o' + destination_path, '-aoa']
 
     print("Extracting {} to {} ...".format(file_path, destination_path))
     subprocess.run(command)
