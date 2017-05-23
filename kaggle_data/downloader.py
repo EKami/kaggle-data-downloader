@@ -53,7 +53,7 @@ class KaggleDataDownloader:
         except Exception as e:
             print(e)
 
-    def uncompress(self, dataset_path, destination_path):
+    def decompress(self, dataset_path, destination_path):
         """
             Uncompress an archive
         :param dataset_path: string

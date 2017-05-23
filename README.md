@@ -23,6 +23,6 @@ destination_path = "input/"
 
 downloader = KaggleDataDownloader("Ekami", "somePassword", "planet-understanding-the-amazon-from-space")
 output_path = downloader.download_dataset("test-jpg-additional.tar.7z", destination_path)
-downloader.uncompress(output_path, destination_path)
-downloader.uncompress(destination_path + "test-jpg-additional.tar", destination_path)
+downloader.decompress(output_path, destination_path)
+downloader.decompress(destination_path + "test-jpg-additional.tar", destination_path)
 ```

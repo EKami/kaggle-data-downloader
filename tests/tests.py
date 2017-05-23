@@ -19,8 +19,8 @@ class TestKaggleDataDownloader:
         downloader = KaggleDataDownloader(os.getenv("KAGGLE_USER"), os.getenv("KAGGLE_PASSWD"), competition_name)
 
         output_path = downloader.download_dataset(dataset_name, destination_path)
-        downloader.uncompress(output_path, destination_path)
-        downloader.uncompress(destination_path + "test-jpg-additional.tar", destination_path)
+        downloader.decompress(output_path, destination_path)
+        downloader.decompress(destination_path + "test-jpg-additional.tar", destination_path)
 
         labels_output_path = downloader.download_dataset(labels_name, destination_path)
-        downloader.uncompress(labels_output_path, destination_path)
+        downloader.decompress(labels_output_path, destination_path)

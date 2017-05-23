@@ -2,6 +2,7 @@ import subprocess
 import tarfile
 import zipfile
 
+
 def get_archive_type(file_path):
     """
     Returns the type of archive passed to file_path
