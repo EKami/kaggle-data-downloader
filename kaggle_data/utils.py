@@ -1,6 +1,6 @@
 import subprocess
 import tarfile
-
+import zipfile
 
 def get_archive_type(file_path):
     """
@@ -34,13 +34,20 @@ def get_archive_type(file_path):
 def extract_7_zip(file_path, destination_path):
     command = ['7za', 'x', file_path, '-o' + destination_path, '-aoa', '-bsp1', '-bso0']
 
-    print("Extracting {} to {}".format(file_path, destination_path))
+    print("Extracting {} to {} ...".format(file_path, destination_path))
     subprocess.run(command)
     print("Extraction finished")
 
 
 def extract_tar(file_path, destination_path):
-    print("Extracting {} to {}".format(file_path, destination_path))
+    print("Extracting {} to {} ...".format(file_path, destination_path))
     with tarfile.open(file_path) as tar:
         tar.extractall(path=destination_path)
+    print("Extraction finished")
+
+
+def extract_zip(file_path, destination_path):
+    print("Extracting {} to {} ...".format(file_path, destination_path))
+    with zipfile.ZipFile(file_path) as archive:
+        archive.extractall(path=destination_path)
     print("Extraction finished")

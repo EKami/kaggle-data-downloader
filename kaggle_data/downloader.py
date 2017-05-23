@@ -67,6 +67,8 @@ class KaggleDataDownloader:
         file_type = utils.get_archive_type(dataset_path)
         if file_type == '7z':
             utils.extract_7_zip(dataset_path, destination_path)
+        elif file_type == 'zip':
+            utils.extract_zip(dataset_path, destination_path)
         elif file_type == 'tar':
             utils.extract_tar(dataset_path, destination_path)
 
