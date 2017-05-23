@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='kaggle_data_downloader',
+    name='kaggle_data',
     version='0.1',
 
     description='An unofficial Kaggle datasets downloader',
-    long_description="https://github.com/EKami/kaggle_data_downloader/blob/master/README.md",
-    url='https://github.com/EKami/kaggle_data_downloader',
+    long_description="https://github.com/EKami/kaggle_data/blob/master/README.md",
+    url='https://github.com/EKami/kaggle_data',
     author='GODARD Tuatini',
     author_email='tuatinigodard@gmail.com',
     license='MIT',
@@ -29,9 +29,6 @@ setup(
 
     keywords='development',
     packages=find_packages(exclude=['tests']),
-    package_data={
-        'utils': ['utils.py'],
-    },
     install_requires=['mechanicalsoup',
                       'progressbar2'],
 )

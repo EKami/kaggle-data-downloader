@@ -1,6 +1,6 @@
 import re
 import os
-import utils
+from . import utils
 import progressbar
 from mechanicalsoup import Browser
 
