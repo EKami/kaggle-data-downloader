@@ -19,6 +19,8 @@ Please note that accepting the competition rules before your commands is mandato
 
 Usage example:
 ```
+from kaggle_data.downloader import KaggleDataDownloader
+
 destination_path = "input/"
 
 downloader = KaggleDataDownloader("Ekami", "somePassword", "planet-understanding-the-amazon-from-space")
