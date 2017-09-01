@@ -1,5 +1,6 @@
 import re
 import os
+import sys
 from . import utils
 import progressbar
 from mechanicalsoup import Browser
@@ -51,7 +52,7 @@ class KaggleDataDownloader:
                     return self._download_file(browser, url, destination_path)
 
         except Exception as e:
-            print(e)
+            print(e, file=sys.stderr)
 
     def decompress(self, dataset_path, destination_path):
         """
