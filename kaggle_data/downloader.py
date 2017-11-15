@@ -7,7 +7,6 @@ from mechanicalsoup import Browser
 
 
 class KaggleDataDownloader:
-
     def __init__(self, username, password, competition_name):
         """
         
@@ -153,13 +152,16 @@ class KaggleDataDownloader:
         browser = Browser()
 
         login_page = browser.get(login_url)
-        login_form = login_page.soup.select("#login-account")[0]
-        login_form.select("#UserName")[0]['value'] = self.username
-        login_form.select("#Password")[0]['value'] = self.password
-        login_result = browser.submit(login_form, login_page.url)
-        if login_result.url == login_url:
-            error = (login_result.soup
-                     .select('#standalone-signin .validation-summary-errors')[0].get_text())
-            raise Exception('There was an error logging in: ' + error)
+        token = re.search('antiForgeryToken: \'(?P<token>.+)\'', str(login_page.soup)).group(1)
+        login_result_page = browser.post(login_url,
+                                         data={
+                                             'username': self.username,
+                                             'password': self.password,
+                                             '__RequestVerificationToken': token
+                                         })
+
+        error_match = re.search('"errors":\["(?P<error>.+)"\]', str(login_result_page.soup))
+        if error_match:
+            raise Exception('There was an error logging in: ' + error_match.group(1))
 
         return browser
