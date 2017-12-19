@@ -53,24 +53,22 @@ class KaggleDataDownloader:
         except Exception as e:
             print(e, file=sys.stderr)
 
-    def decompress(self, dataset_path, destination_path):
+    @staticmethod
+    def decompress(file_path, destination_path):
         """
             Uncompress an archive
-        :param dataset_path: string
+        :param file_path: string
             Path of your dataset archive
         :param destination_path: string
             Path where you want to extract your file
-        :param skip_existing: bool
-            True to skip already unarchived files
-            False to overwrite already uncompressed files
         """
-        file_type = utils.get_archive_type(dataset_path)
+        file_type = utils.get_archive_type(file_path)
         if file_type == '7z':
-            utils.extract_7_zip(dataset_path, destination_path)
+            utils.extract_7_zip(file_path, destination_path)
         elif file_type == 'zip':
-            utils.extract_zip(dataset_path, destination_path)
+            utils.extract_zip(file_path, destination_path)
         elif file_type == 'tar':
-            utils.extract_tar(dataset_path, destination_path)
+            utils.extract_tar(file_path, destination_path)
 
     def _download_file(self, browser, url, destination_path):
         local_filename = url.split('/')[-1]

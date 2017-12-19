@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='kaggle_data',
-    version='0.3',
+    version='0.4',
 
     description='An unofficial Kaggle datasets downloader',
     long_description="https://github.com/EKami/kaggle_data/blob/master/README.md",
