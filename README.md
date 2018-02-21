@@ -8,7 +8,7 @@ An unofficial Kaggle datasets downloader very much inspired by [kaggle-cli](http
 ## Installation
 
 ```
-$ pip install -U git+https://github.com/EKami/kaggle-data-downloader.git
+$ pip install -U kaggle_data
 ```
 
 Depending on the format of your archive you may need to install some tools
@@ -31,4 +31,25 @@ downloader = KaggleDataDownloader("Ekami", "somePassword", "planet-understanding
 output_path = downloader.download_dataset("test-jpg-additional.tar.7z", destination_path)
 downloader.decompress(output_path, destination_path)
 downloader.decompress(destination_path + "test-jpg-additional.tar", destination_path)
+```
+
+## Packaging the project for Pypi deploy
+
+```
+pip install twine
+pip install wheel
+python setup.py sdist
+python setup.py bdist_wheel
+```
+
+[Create a pypi account](https://packaging.python.org/tutorials/distributing-packages/#id76) and create `$HOME/.pypirc` with:
+```
+[pypi]
+username = <username>
+password = <password>
+```
+
+Then upload the packages with:
+```
+twine upload dist/*
 ```
